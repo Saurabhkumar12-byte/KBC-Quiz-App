@@ -1,0 +1,235 @@
+.container{
+    background: #00000025;
+    width: 100%;
+    height: 100%;
+}
+.menu_option{
+    height: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .2rem;
+}
+
+.menu_box{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #daa520;
+    border-radius: 50%;
+    border-radius: 50%;
+    background: blue;
+    justify-self: center;
+}
+.menu_box span{
+    padding: .5rem;
+    border: 1px solid #ffed8a;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    text-align: center;
+    color: #ffda7d;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}
+.home_box{
+    height: 74%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.left_content{
+    width: 50%;
+    height: 100%;
+}
+.left_content_box{
+    width: 100%;
+    height: 100%;
+}
+.left_content_box img{
+    width: 55%;
+}
+.right_content{
+    width: 50%;
+    height: 100%;
+}
+.right_content_box{
+    width: 70%;
+    border: 2px solid #00000012;
+    background: #030356b1;
+    padding: .5rem;
+    border-radius: 8px;
+}
+.language_box{
+    width: 100%;
+}
+.language_option{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.option{
+    margin-right: 1rem;
+    
+}
+.option label{
+    padding-left: .2rem;
+}
+.user_box{
+    flex-direction: column;
+    width: 100%;
+}
+.user_box input{
+    padding: .5rem;
+    text-align: center;
+    font-weight: 700;
+    text-transform:uppercase;
+    outline: none;
+    background:#0000006a;
+    color: #fff;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    width: 100%;
+}
+.submit_box button{
+    width: max-content;
+    padding: .3rem;
+    font-size: 1rem;
+    color: #fff;
+    border-radius: 6px;
+    border: 2px solid transparent;
+    text-decoration: none;
+}
+.submit_box a {
+    width: max-content;
+    padding: .15rem .5rem;
+    font-size: 1rem;
+    color: #fff;
+    border-radius: 6px;
+    border: 2px solid transparent;
+    text-decoration: none;
+}
+
+.submit_box :nth-child(1){
+    background-color: #800080;
+    margin-right: 1rem;
+}
+.submit_box :nth-child(2){
+    background-color: green;
+    
+}
+
+ /* Media Query for Mobile Devices */
+ @media (min-width: 0px) and (max-width: 479px) {
+    body{
+        background: #000 ;
+    }
+    .home1{
+        display: none;
+        color: #fff;
+    }
+    .hidden{
+        display: flex !important;
+    }
+ }
+ 
+  
+/* Media Query for low resolution  Tablets, Ipads */
+@media (min-width: 480px) and (max-width: 767px) {
+    .menu_box span{
+        font-size: .9rem;
+    }
+    .right_content{
+        width: 55%;
+        font-size: .7rem !important;
+        padding: 0;
+    }
+    .user_box input{
+        font-size: .7rem;
+    }
+    .submit_box a{
+        font-size: .8rem;
+    }
+    .m1{
+        margin: 1rem 0rem;
+    }
+    .submit_box :nth-child(1){
+        margin-right: .5rem;
+    }
+    .circle{
+        width: 15px;
+        height: 15px;
+    }
+    .timer_circle{
+        width: 90px;
+        height: 90px;
+    }
+    .moneychart-ul li {
+        width: 60%;
+        border-radius: 6px;
+        padding: .1rem;
+        font-size: .5rem;
+        font-weight: 800;
+        box-sizing: border-box;
+        color: #ffd700;
+      }
+}
+  
+/* Media Query for Tablets Ipads portrait mode */
+@media (min-width: 768px) and (max-width: 1024px){
+   
+    .right_content{
+        width: 50%;
+        font-size: 1.3rem !important;
+    }
+    .user_box input{
+        font-size: 1.3rem;
+    }
+    .submit_box a{
+        font-size: 1.3rem;
+    }
+    .m1{
+        margin: 1.5rem 0rem;
+    }
+}
+  
+/* Media Query for Laptops and Desktops */
+@media (min-width: 1025px) and (max-width: 1280px){
+    .right_content{
+        width: 50%;
+        font-size: 1.5rem !important;
+    }
+    .user_box input{
+        font-size: 1.5rem;
+    }
+    .submit_box a{
+        font-size: 1.3rem;
+    }
+    .m1{
+        margin: 1.5rem 0rem;
+    }
+}
+  
+/* Media Query for Large screens */
+@media (min-width: 1281px) {
+    .left_content_box img{
+        width: 50%;
+    }
+    .right_content{
+        width: 45%;
+        font-size: 1.5rem !important;
+    }
+    .user_box input{
+        font-size: 1.5rem;
+    }
+    .submit_box a{
+        font-size: 1.3rem;
+    }
+    .m1{
+        margin: 1.5rem 0rem;
+    }
+}
