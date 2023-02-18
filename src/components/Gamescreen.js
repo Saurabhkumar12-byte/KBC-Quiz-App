@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import aud from '../components/assets/aud1.png'
 import fifty from '../components/assets/501.png'
 import QUESTIONDATA from '../components/Questiondata.js'
@@ -29,8 +29,48 @@ export default function Gamescreen() {
     const [winRate, setwinRate] = useState(90)
     const [loseRate, setLoseRate] = useState(30)
     const [correctBg, setCorrectBg] = useState("")
-
-
+    const [timerSec, settimerSec]=useState(30);
+    const [timer, settimer]=useState(false);
+    let setIntId;
+    useEffect(() => {
+        // Update thefunction timerFunc() {
+        
+                clearInterval(setIntId);
+                // let timer=document.querySelector(".timer_circle");
+                // timer.textConte
+                settimer(false);
+                setIntId= setInterval(() => {
+                  if (timerSec>0) {
+                    
+                    
+                    settimerSec(timerSec-1);
+                  }
+                  else{
+                    clearInterval(setIntId);
+                  }
+                }, 1000);
+                return ()=>clearInterval(setIntId);
+    },[timer]);
+    useEffect(() => {
+        // Update thefunction timerFunc() {
+        
+                clearInterval(setIntId);
+                // let timer=document.querySelector(".timer_circle");
+                // timer.textConte
+                setIntId= setInterval(() => {
+                  if (timerSec>0) {
+                    
+                    
+                    settimerSec(timerSec-1);
+                  }
+                  else{
+                    clearInterval(setIntId);
+                  }
+                }, 1000);
+                return ()=>clearInterval(setIntId);
+    });
+    
+    
     function checkOption1() {
         checkAnswer("option1Ans", "option1Box");
     }
@@ -43,6 +83,7 @@ export default function Gamescreen() {
     function checkOption4() {
         checkAnswer("option4Ans", "option4Box");
     }
+    
     function checkAnswer(id, id2) {
         let option = document.getElementById(`${id}`).innerHTML;
         let optionBox = document.getElementById(`${id2}`);
@@ -50,13 +91,21 @@ export default function Gamescreen() {
         let li_id_reward = document.getElementById(`li${REWARDLIST[index].id}`)
         let li_id_reward_remove = document.getElementById(`li${REWARDLIST[ins].id}`)
         let rewardMoney = REWARDLIST[index].amount;
-        if (answer === option) {
+        if (timerSec===0) {
+            alert('you ran out of time');
+            
+        }
+        else if (answer === option) {
             li_id_reward.classList.add("active")
             optionBox.classList.add("correct")
             setCorrectBg("correct")
+            
             correctSound()
             setTimeout(() => {
                 optionBox.classList.remove("correct")
+                // clearInterval(setIntId)
+                // timerFunc();
+                settimerSec(30);
                 setIndex(index + 1)
                 setCorrectBg("")
                 setQuestion(QUESTIONDATA[index + 1].question)
@@ -189,7 +238,7 @@ export default function Gamescreen() {
                             <div className={`circle ${correctBg}`}></div>
                             <div className={`circle ${correctBg}`}></div>
                             <div className={`timer_circle flex `}>
-                                <h1>21</h1>
+                               {timerSec}
                             </div>
                             <div className={`circle ${correctBg}`}></div>
                             <div className={`circle ${correctBg}`}></div>
@@ -199,8 +248,19 @@ export default function Gamescreen() {
                             <div className={`circle ${correctBg}`}></div>
                             <div className={`circle ${correctBg}`}></div>
                         </div>
+                        
+                    </div>
+                    <div className="frame2_5">
+                    <button onClick={()=>{
+                        clearInterval(setIntId)
+                        settimer(false)
+                    }}>Pause</button>
+                    <button onClick={()=>{
+                        settimer(true)
+                    }}>Restart</button>
                     </div>
                     <div className="frame3">
+                    
                         <div className="question_container">
                             <div className="line"></div>
                             <div className="question_screen">
